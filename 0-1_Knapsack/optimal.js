@@ -61,18 +61,28 @@ function runProgram(input){
     }
     
 }
-
+let dp =[];
+for(let i=0; i< 2002; i++){
+    let col =[]
+    for(let j=0; j< 2002; j++){
+        col.push(-1);
+    }
+    dp.push(col)
+    
+}
 
 function funl(wt,va,s,n){
     if( n==0 || s==0 ){
         return 0;
     }
-   
+    if(dp[n][s]!=-1){
+        return dp[n][s];
+    }
     if(wt[n-1]<=s){
-        return Math.max( va[n-1] + funl(wt,va,s-wt[n-1],n-1), funl(wt,va,s,n-1))
+        return dp[n][s]=Math.max( va[n-1] + funl(wt,va,s-wt[n-1],n-1), funl(wt,va,s,n-1))
     }
     else if(wt[n-1]>s){
-        return funl(wt,va,s,n-1)
+        return dp[n][s]=funl(wt,va,s,n-1)
     }
 }
 
