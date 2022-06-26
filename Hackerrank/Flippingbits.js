@@ -53,7 +53,7 @@ function runProgram(input) {
    
   }
   function funl(a){
-    console.log(a)
+    return (2**32 - 1) - n
   }
   if (process.env.USERNAME=== "hriti") {
     runProgram(`3 
