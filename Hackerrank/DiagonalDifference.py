@@ -16,11 +16,20 @@ arr =[[1,2,3],[4,5,6],[9,8,9]]
 
 def diagonalDifference(arr):
     # Write your code here
+    # 01 approach
+    # n = len(arr)
+    # d1 = sum([arr[x][x] for x in range(n)]) 
+    # d2 = sum([arr[x][n-1-x] for x in range (n)])
+    # return abs(d1-d2)       
+    # 02 approach
     n = len(arr)
-    d1 = sum([arr[x][x] for x in range(n)]) 
-    d2 = sum([arr[x][n-1-x] for x in range (n)])
-    return abs(d1-d2)       
-
+    ap=0
+    bp=0
+    for i in range(n):
+      ap+= arr[i][i]
+      bp+= arr[i][-1-i]
+    
+    return abs(ap-bp)   
 
 print(diagonalDifference(arr))
 
