@@ -17,10 +17,7 @@ import sys
 
 def pageCount(n, p):
     # Write your code here
-    total = n/2
-    front = p/2
-    back = total - front
-    return int(min(front,back))
+    return min(p//2, n//2 - p//2)
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
