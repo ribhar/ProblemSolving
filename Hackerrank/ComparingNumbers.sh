@@ -46,7 +46,14 @@
 
 # X is less than Y  
 # Explanation
+read X
 
-read c
+read Y
 
-[[ "$c" == [yY] ]] && echo "YES" || echo "NO"
+if (( X > Y )); then
+    printf "X is greater than Y"
+elif (( X == Y )); then
+    printf "X is equal to Y"
+else
+    printf "X is less than Y"
+fi
