@@ -1,23 +1,23 @@
-# In this challenge, we practice using the tr command because it is a useful translation tool in Linux.
 
-# In a given fragment of text, delete all the lowercase characters .
 
-# Input Format
 
-# A block of ASCII text.
+In a given fragment of text, replace all sequences of multiple spaces with just one space.
 
-# Output Format
+Input Format
 
-# Delete all the lowercase characters in the given block of text.
+A block of ASCII text.
 
-# Sample Input
+Output Format
 
-# Hello
-# World
-# how are you
-# Sample Output
+Replace all sequences of multiple spaces with just one space.
 
-# H
-# W
+Sample Input
 
-tr -d 'a-z' 
+He  llo
+Wor  ld
+how  are  you
+Sample Output
+
+He llo
+Wor ld
+how are you
