@@ -34,3 +34,8 @@
 # 02 is repeated twice
 # 03 occurs once
 # aa is repeated thrice (if we ignore case - AA, Aa are the same as 'aa')
+
+
+
+
+uniq -c -i | cut -c7-
