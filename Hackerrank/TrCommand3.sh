@@ -1,23 +1,25 @@
 
 
 
-In a given fragment of text, replace all sequences of multiple spaces with just one space.
+# In a given fragment of text, replace all sequences of multiple spaces with just one space.
 
-Input Format
+# Input Format
 
-A block of ASCII text.
+# A block of ASCII text.
 
-Output Format
+# Output Format
 
-Replace all sequences of multiple spaces with just one space.
+# Replace all sequences of multiple spaces with just one space.
 
-Sample Input
+# Sample Input
 
-He  llo
-Wor  ld
-how  are  you
-Sample Output
+# He  llo
+# Wor  ld
+# how  are  you
+# Sample Output
 
-He llo
-Wor ld
-how are you
+# He llo
+# Wor ld
+# how are you
+
+tr -s ' '
