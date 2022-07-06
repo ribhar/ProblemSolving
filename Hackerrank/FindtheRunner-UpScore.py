@@ -22,11 +22,15 @@
 # Given list is . The maximum score is , second maximum is . Hence, we print  as the runner-up score.
 
 
-arr = [2,3,6,6,5]
-
-x = max(arr)
-while max(arr)==x:
-    arr.remove(max(arr))
+if __name__ == '__main__':
+    n = int(input())
+    arr = map(int, input().split())
+        
     
 
-print(max(arr))
+    x = max(arr)
+    while max(arr)==x:
+        arr.remove(max(arr))
+        
+
+    print(max(arr))
