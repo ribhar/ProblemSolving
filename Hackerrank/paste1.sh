@@ -36,5 +36,5 @@
 # The delimiter between consecutive rows of data has been transformed from the newline to a semicolon.
 
 
-paste -s -d";"
+ paste -s -d";"
 
