@@ -38,5 +38,6 @@ N, M = input().split()
 ar = input().split()
 
 a = set(input().split())
+
 b = set(input().split())
 print(sum([(x in a) - (x in b) for x in ar]))
