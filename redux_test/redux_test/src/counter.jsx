@@ -1,19 +1,21 @@
 import React, { useState } from 'react'
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import * as types from "./Redux/actiontype"
 
-const counter = () => {
-    const [count,setCount] = useState(null)
+const Counter = () => {
+    const mukan = useSelector((store)=>store)
+    console.log(mukan,"this is me")
+    // const [count,setCount] = useState(null)
     const dispatch = useDispatch()
     const runfun = ()=>{
         dispatch({type: types.INCREASE});
     }
   return (
     <div>
-        <button onClick={runfun}></button>
-          this is redux   {count}
+        <button onClick={runfun}>Main Hu Button</button>
+          this is redux   {count}, {mukan}
  </div>
   )
 }
 
-export default counter
+export default Counter
