@@ -3,7 +3,7 @@ import * as types from "./actiontype"
 
 const reducer=(state,action) =>{
 
-    switch(action){
+    switch(action.type){
         case types.INCREASE:
             return {
                 count : state.count+1
