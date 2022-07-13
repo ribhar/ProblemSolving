@@ -1,10 +1,13 @@
 import React from 'react'
 
+
 const counter = () => {
+    const dispatch = useDispatch()
   return (
     <div>
-      
-    </div>
+
+this is redux   
+ </div>
   )
 }
 
