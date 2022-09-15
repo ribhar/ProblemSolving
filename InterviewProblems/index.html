@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        
+        .main{
+            margin: auto;
+
+            text-align: center;
+            width: 90%;
+        }
+        #input{
+            width: 250px;
+        }
+        
+    </style>
+    <title>Convert a number to word</title>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Convert a number to word</h1>
+
+      <input id="input" type="number" placeholder="Type number between 0 - 999,999,999" />
+
+      <button id="convert">Convert It!</button>
+
+      <p id="output"></p>
+
+    </div>
+  </body>
+  <script>
+    const single_digit = {
+
+      0 : "Zero",
+      1 : "One",
+      2 : "Two",
+      3 : "Three",
+      4 : "Four",
+      5 : "Five",
+      6 : "Six",
+      7 : "Seven",
+      8 : "Eight",
+      9 : "Nine"
+
+    };
+    const double_digit = {
+        
+      10 : "Ten",
+      11 : "Eleven",
+      12 : "Twelve",
+      13 : "Thirteen",
+      14 : "Fourteen",
+      15 : "Fifteen",
+      16 : "Sixteen",
+      17 : "Seventeen",
+      18 : "Eighteen",
+      19 : "Nineteen"
+    };
+    const double_digits = {
+
+      2 : "Twenty",
+      3 : "Thirty",
+      4 : "Forty",
+      5 : "Fifty",
+      6 : "Sixty",
+      7 : "Seventy",
+      8 : "Eighty",
+      9 : "Ninety"
+
+    };
+    const big_digit = {
+
+      1 : "",
+      2 : "Thousand ",
+      3 : "Million ",
+      4 : "Billion "
+
+    };
+
+    const max = 999999999;
+
+    let converted = "";
+
+    let convert = document.getElementById("convert");
+    convert.addEventListener("click",(e)=>{
+
+      e.preventDefault();
+
+      onConvert();
+    });
+    
+    const funl =(input_number) => {
+      let absolute_input = Math.abs(input_number);
+      if (input_number > max) {
+        return (document.getElementsByClassName("output").innerText =
+          `Entered number should be less than or equal to ${max}`);
+      }
+      if (input_number.toString().includes("-") && absolute_input != 0) {
+        converted += "negative ";
+      }
+      if (absolute_input in single_digit) {
+        converted += single_digit[absolute_input];
+      } else if (absolute_input < 100) {
+        converted += digits_converter(absolute_input);
+      } else {
+        let absolute_arryay = separate_digits(absolute_input);
+        let count = absolute_arryay.length;
+        for (i = 0; i < absolute_arryay.length; i++) {
+          if (absolute_arryay[i][0] !== "000") {
+            if (absolute_arryay[i][0].length == 3) {
+              converted += digits_converter2(parseInt(absolute_arryay[i]));
+              converted += " " + big_digit[count];
+            } else {
+              converted += digits_converter(parseInt(absolute_arryay[i]));
+              converted += " " + big_digit[count] + " ";
+            }
+            count--;
+          } else {
+            count--;
+          }
+        }
+      }
+      return converted;
+    }
+    
+    const separate_digits = (input_number) => {
+      let absolute_arryay = [];
+      var string_n = input_number.toString();
+      var count = 0;
+      var tempArray = [];
+      var singleDigits = string_n.split("");
+      var digits = singleDigits.length;
+      for (var i = digits - 1; i >= 0; i--) {
+        tempArray[0] = singleDigits[i] + tempArray[0];
+        count++;
+        tempArray[0] = tempArray[0].replace("undefined", "");
+        if (count % 3 == 0) {
+          absolute_arryay.unshift(tempArray);
+          tempArray = [];
+        }
+      }
+      if (tempArray.length != 0) {
+        absolute_arryay.unshift(tempArray);
+      }
+      return absolute_arryay;
+    }
+
+
+    const onConvert = (e) => {
+      const input_number = document.getElementById("input").value;
+      converted = "";
+      document.getElementById("output").innerText =
+        `${input_number} after convertion is ` + funl(input_number);
+    }
+
+    const digits_converter=(input_number) => {
+      var currenct_text = "";
+      if (input_number < 10) {
+        return single_digit[input_number];
+      }
+      if (input_number in double_digit) {
+        currenct_text += double_digit[input_number];
+      } else {
+        currenct_text += double_digits[input_number.toString().charAt(0)];
+        if (input_number.toString().charAt(1) !== "0") {
+          currenct_text += "-" + single_digit[input_number.toString().charAt(1)];
+        }
+      }
+      return currenct_text;
+    }
+    
+
+    const digits_converter2 = (input_number) =>{
+      var currenct_text = "";
+      if (input_number == 0) {
+        return "";
+      }
+      if (input_number < 100) {
+        currenct_text += digits_converter(input_number);
+        return currenct_text;
+      }
+      currenct_text += single_digit[input_number.toString().charAt(0)];
+      currenct_text += " hundred ";
+      if (input_number.toString().substr(1) !== "00") {
+        currenct_text += digits_converter(
+          parseInt(input_number.toString().substr(1))
+        );
+      }
+      return currenct_text;
+    }
+   
+  </script>
+</html>
