@@ -97,7 +97,7 @@ function myPromise(num) {
    
 }
 
-√<div class="relative"
+<div class="relative"
 
 >
 <div >
