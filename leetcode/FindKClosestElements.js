@@ -27,16 +27,17 @@
 // Submissions
 // 789,697
 var findClosestElements = function(arr, k, x) {
-    if(arr[0]>x) return arr.slice(0,k)
-    if(arr[arr.length-1]<x) return arr.slice(-k)
-    
-    let obj = {}
-    for(let i=0; i<arr.length; i++){
-        obj[i] = Math.abs(arr[i]-x)
+    let left = 0;
+  let right = arr.length - k;
 
+  while (left < right) {
+    let mid = left + Math.floor((right - left) / 2);
+
+    if (x - arr[mid] > arr[mid + k] - x) {
+      left = mid + 1;
+    } else {
+      right = mid;
     }
-    console.log(obj)
-    for(let a in obj){
-        
-    }
+  }
+  return arr.slice(left, left + k);
 };
