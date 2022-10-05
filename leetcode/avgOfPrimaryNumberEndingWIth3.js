@@ -5,24 +5,16 @@ function funl(start,end,isPrime){
 
     let primeNumbers = []
     
-    for(let i=start; i<=end; i++){
-        if(isPrime(i)){
-            primeNumbers.push(i)
-        }
-    }
-    
-    
     let EndingWith3 =[]
-
-    for(let i=0; i<primeNumbers.length; i++){
-        if(primeNumbers[i]%10==3){
-            EndingWith3.push(primeNumbers[i])
-        }
-    }
     let totalOfEndingWith3 = 0
-
-    for(x of EndingWith3){
-        totalOfEndingWith3+=x;
+    for(let i=start; i<=end; i++){
+        if(i%10!==3){
+            continue
+        }
+        if(isPrime(i)){
+            EndingWith3.push(i)
+            totalOfEndingWith3+=i
+        }
     }
     
     return totalOfEndingWith3/EndingWith3.length
