@@ -48,3 +48,29 @@
 # The lowest grade of  belongs to Tina. The second lowest grade of  belongs to both Harry and Berry, so we order their names alphabetically and print each name on a new line.
 
 
+data = []
+marks = []
+        
+for _ in range(int(input())):
+    name = input()
+    score = float(input())
+    data.append([name,score])
+    marks.append(score)
+
+lowest_count = 0
+
+marks.sort()
+
+x = marks[0]
+
+while lowest_count == 0:
+    lol = marks.count(x)
+    x_value = marks[lol]
+    lowest_count += lol
+
+d_data = dict(data)
+# print(d_data)
+
+for key, value in sorted(d_data.items()):
+    if value == x_value :
+        print(key)
