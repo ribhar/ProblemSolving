@@ -3,6 +3,6 @@ class Splitter {
 
     }
 }
-let arr = [1,2,"ritik","aakash",3]
+let items = [1,2,"ritik","aakash",3]
 let itemsPerPage
-const newSplitter = new Items(arr)
+const newSplitter = new Splitter(items,itemsPerPage)
