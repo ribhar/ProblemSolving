@@ -2,7 +2,9 @@ class Splitter {
     constructor(items,itemsPerPage){
         this.items = items
         this.itemsPerPage = itemsPerPage
+        
     }
+
     numberOfPages(){
         return this.items.length%this.itemsPerPage==0? this.items.length/this.itemsPerPage : Math.floor(this.items.length/this.itemsPerPage)+1
     }
@@ -18,8 +20,23 @@ class Splitter {
 
         
     }
-    indexOfPage(){
+    indexOfPage(input){
+        let i =0
+        let book = []
+        while(i<this.items.length){
+            let row = []
+            for(let j=0; j<this.itemsPerPage && i<this.items.length; j++){
+                row.push(this.items[i++])
+            }
+            book.push(row)
+        }
         
+        for(let j=0; j<book.length; j++){
+            for(let k =0; k<book[j].length; k++){
+                if(book[j][k]==input) return j
+            }
+        }
+        return -1
     }
     
 }
@@ -31,4 +48,4 @@ const pageSplitter = new Splitter(items,itemsPerPage)
 
 console.log(pageSplitter.numberOfPages())
 console.log(pageSplitter.numberOfItemsInPage(4))
-// console.log(pageSplitter.indexOfPage())
+console.log(pageSplitter.indexOfPage(6))
