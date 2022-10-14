@@ -1,8 +1,11 @@
 class Splitter {
-    constructor(){
-
+    constructor(items,itemsPerPage){
+        this.items
+        this.itemsPerPage
     }
 }
 let items = [1,2,"ritik","aakash",3]
 let itemsPerPage
-const newSplitter = new Splitter(items,itemsPerPage)
+const pageSplitter = new Splitter(items,itemsPerPage)
+
+console.log(pageSplitter)
