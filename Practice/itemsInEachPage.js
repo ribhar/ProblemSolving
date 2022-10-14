@@ -21,6 +21,6 @@ const pageSplitter = new Splitter(items,itemsPerPage)
 
 // console.log(pageSplitter)
 
-console.log(pageSplitter.numberOfPages())
-console.log(pageSplitter.numberOfItemsInPage(2))
-console.log(pageSplitter.indexOfPage())
+// console.log(pageSplitter.numberOfPages())
+console.log(pageSplitter.numberOfItemsInPage(0))
+// console.log(pageSplitter.indexOfPage())
