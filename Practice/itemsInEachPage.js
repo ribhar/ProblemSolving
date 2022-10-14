@@ -4,7 +4,7 @@ class Splitter {
         this.itemsPerPage = itemsPerPage
     }
     numberOfPages(){
-        return this.items%this.itemsPerPage==0? this.items/this.itemsPerPage : this.items/this.itemsPerPage+1
+        return this.items.length%this.itemsPerPage==0? this.items.length/this.itemsPerPage : this.items.length/this.itemsPerPage+1
     }
     
 }
