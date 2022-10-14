@@ -10,17 +10,16 @@ class Splitter {
 
     }
     indexOfPage(){
-
+        
     }
     
 }
-let items = []
-console.log(items.length)
+let items = [1,2,"ritik","aakash",3]
 let itemsPerPage = 6
 const pageSplitter = new Splitter(items,itemsPerPage)
 
 // console.log(pageSplitter)
 
-// console.log(pageSplitter.numberOfPages())
-// console.log(pageSplitter.numberOfItemsInPage())
-// console.log(pageSplitter.indexOfPage())
+console.log(pageSplitter.numberOfPages())
+console.log(pageSplitter.numberOfItemsInPage())
+console.log(pageSplitter.indexOfPage())
