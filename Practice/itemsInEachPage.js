@@ -9,7 +9,13 @@ class Splitter {
     numberOfItemsInPage(n){
         if(n<0) return -1
         if(n>=this.numberOfPages()) return -1
-        return this.numberOfPages()==n? this.items.length%this.itemsPerPage : this.itemsPerPage
+
+        if(n==(this.numberOfPages()-1)){
+            if(this.items.length%this.itemsPerPage==0) return this.itemsPerPage
+            else return this.items.length%this.itemsPerPage
+        } 
+        else return this.itemsPerPage
+
         
     }
     indexOfPage(){
