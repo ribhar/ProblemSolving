@@ -6,8 +6,9 @@ class Splitter {
     numberOfPages(){
         return this.items.length%this.itemsPerPage==0? this.items.length/this.itemsPerPage : Math.floor(this.items.length/this.itemsPerPage)+1
     }
-    numberOfItemsInPage(){
-
+    numberOfItemsInPage(n){
+        return this.numberOfPages==n? this.items%this.itemsPerPage : this.itemsPerPage
+        
     }
     indexOfPage(){
         
@@ -15,11 +16,11 @@ class Splitter {
     
 }
 let items = [1,2,"ritik","aakash",3]
-let itemsPerPage = 6
+let itemsPerPage = 2
 const pageSplitter = new Splitter(items,itemsPerPage)
 
 // console.log(pageSplitter)
 
 console.log(pageSplitter.numberOfPages())
-console.log(pageSplitter.numberOfItemsInPage())
+console.log(pageSplitter.numberOfItemsInPage(2))
 console.log(pageSplitter.indexOfPage())
