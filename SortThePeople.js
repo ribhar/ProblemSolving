@@ -45,7 +45,6 @@ var sortPeople = function(names, heights) {
         namesObj[i] = heights[i];
     }
     let ans = [];
-    // console.log("working")
     while(ans.length<names.length){
         let max = -Infinity;
         maxKey = "";
